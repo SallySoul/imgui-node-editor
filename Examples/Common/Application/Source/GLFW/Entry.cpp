@@ -103,7 +103,7 @@ int Application_GetTextureHeight(ImTextureID texture)
     return 0;
 }
 
-int main(int, char**)
+int main(int argc, char* argv[])
 {
     // Setup window
     glfwSetErrorCallback(error_callback);
@@ -151,7 +151,7 @@ int main(int, char**)
 
     ImVec4 clear_color = ImVec4(0.125f, 0.125f, 0.125f, 1.00f);
 
-    Application_Initialize();
+    Application_Initialize(argc, argv);
 
     // Main loop
     while (!glfwWindowShouldClose(window))

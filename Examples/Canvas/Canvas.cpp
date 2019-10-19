@@ -62,7 +62,7 @@ const char* Application_GetName()
     return "Canvas";
 }
 
-void Application_Initialize()
+void Application_Initialize(int, char**)
 {
 }
 

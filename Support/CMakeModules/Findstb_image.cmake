@@ -3,7 +3,7 @@ if (TARGET stb_image)
     return()
 endif()
 
-set(_stb_image_SourceDir ${CMAKE_SOURCE_DIR}/ThirdParty/stb_image)
+set(_stb_image_SourceDir ${IMGUI_NODE_EDITOR_DIR}/ThirdParty/stb_image)
 set(_stb_image_BinaryDir ${CMAKE_BINARY_DIR}/ThirdParty/stb_image)
 
 add_subdirectory(${_stb_image_SourceDir} ${_stb_image_BinaryDir})

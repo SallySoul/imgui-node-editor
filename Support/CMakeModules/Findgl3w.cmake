@@ -3,7 +3,7 @@ if (TARGET gl3w)
     return()
 endif()
 
-set(_gl3w_SourceDir ${CMAKE_SOURCE_DIR}/ThirdParty/gl3w)
+set(_gl3w_SourceDir ${IMGUI_NODE_EDITOR_DIR}/ThirdParty/gl3w)
 set(_gl3w_BinaryDir ${CMAKE_BINARY_DIR}/ThirdParty/gl3w)
 
 add_subdirectory(${_gl3w_SourceDir} ${_gl3w_BinaryDir})

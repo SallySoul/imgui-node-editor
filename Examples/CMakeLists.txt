@@ -12,11 +12,11 @@ macro(add_example name)
     if (WIN32)
         set(_Example_Type WIN32)
 
-        set(ApplicationIcon ${CMAKE_SOURCE_DIR}/Examples/Common/Support/Icon.ico)
+        set(ApplicationIcon ${IMGUI_NODE_EDITOR_DIR}/Examples/Common/Support/Icon.ico)
         file(TO_NATIVE_PATH "${ApplicationIcon}" ApplicationIcon)
         string(REPLACE "\\" "\\\\" ApplicationIcon "${ApplicationIcon}")
         configure_file(
-            ${CMAKE_SOURCE_DIR}/Examples/Common/Support/Resource.rc.in
+            ${IMGUI_NODE_EDITOR_DIR}/Examples/Common/Support/Resource.rc.in
             ${CMAKE_CURRENT_BINARY_DIR}/Resource.rc
         )
         set(_Example_Resources
@@ -25,11 +25,11 @@ macro(add_example name)
     elseif (APPLE)
         set(_Example_Type MACOSX_BUNDLE)
 
-        file(GLOB _Example_Resources "${CMAKE_SOURCE_DIR}/Data/*")
+        file(GLOB _Example_Resources "${IMGUI_NODE_EDITOR_DIR}/Data/*")
         set_source_files_properties(${_Example_Resources} PROPERTIES
             MACOSX_PACKAGE_LOCATION "Resources/Data"
         )
-        set(_Example_Icon "${CMAKE_SOURCE_DIR}/Examples/Common/Support/Icon.icns")
+        set(_Example_Icon "${IMGUI_NODE_EDITOR_DIR}/Examples/Common/Support/Icon.icns")
         list(APPEND _Example_Resources ${_Example_Icon})
         set_source_files_properties(${_Example_Icon} PROPERTIES
             MACOSX_PACKAGE_LOCATION "Resources"
@@ -55,7 +55,7 @@ macro(add_example name)
         RELWITHDEBINGO_POSTFIX                  _rd
         MINSIZEREL_POSTFIX                      _r
         VS_DEBUGGER_WORKING_DIRECTORY           ${_ExampleBinDir}
-        MACOSX_BUNDLE_INFO_PLIST                "${CMAKE_SOURCE_DIR}/Examples/Common/Support/Info.plist.in"
+        MACOSX_BUNDLE_INFO_PLIST                "${IMGUI_NODE_EDITOR_DIR}/Examples/Common/Support/Info.plist.in"
         MACOSX_BUNDLE_BUNDLE_NAME               "${PACKAGE_NAME}"
         MACOSX_BUNDLE_GUI_IDENTIFIER            "com.sandbox.collisions"
         MACOSX_BUNDLE_LONG_VERSION_STRING       "${PACKAGE_VERSION}"
@@ -67,14 +67,13 @@ macro(add_example name)
         TARGET ${name}
         PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ARGS ${_ExampleBinDir}
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ARGS ${CMAKE_SOURCE_DIR}/Data ${_ExampleBinDir}/Data
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ARGS ${IMGUI_NODE_EDITOR_DIR}/Data ${_ExampleBinDir}/Data
     )
 
 endmacro()
 
 add_subdirectory(Common/Application)
-
 add_subdirectory(Canvas)
-add_subdirectory(Simple)
-add_subdirectory(BasicInteraction)
-add_subdirectory(Blueprints)
+#add_subdirectory(Simple)
+#add_subdirectory(BasicInteraction)
+#add_subdirectory(Blueprints)

@@ -8,6 +8,6 @@ int         Application_GetTextureWidth(ImTextureID texture);
 int         Application_GetTextureHeight(ImTextureID texture);
 
 const char* Application_GetName();
-void Application_Initialize();
+void Application_Initialize(int argc, char* argv[]);
 void Application_Finalize();
 void Application_Frame();

@@ -38,7 +38,7 @@ target_link_libraries(Application PUBLIC imgui ScopeGuard)
 target_link_libraries(Application PRIVATE stb_image)
 
 if (WIN32)
-    set(_DXSDK_Dir  ${CMAKE_SOURCE_DIR}/ThirdParty/DXSDK)
+    set(_DXSDK_Dir  ${IMGUI_NODE_EDITOR_DIR}/ThirdParty/DXSDK)
     set(_DXSDK_Arch x86)
     if (${CMAKE_SIZEOF_VOID_P} EQUAL 8)
         set(_DXSDK_Arch x64)
